@@ -2,9 +2,10 @@ import os
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
 
-def pad_fun():
-    ...
-    
+def pad_fun(data, block_size=16):
+    len_padding = block_size - (len(data) % block_size)
+    return data + bytes([len_padding] * len_padding)
+
 def read_file(f):
     with open(f, "rb") as fil:
         header = f.read(54)
@@ -21,7 +22,8 @@ def ecb_encrypt(file, key):
     cipher = AES.new(key,AES.MODE_ECB)
     cipher_text = b""
     header, data = read_file(file)
-    pad_data = pad_fun(data)
+    
+
 
 def cbc_encrypt(file, key, iv):
     ...
