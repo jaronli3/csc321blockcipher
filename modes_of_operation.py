@@ -8,9 +8,14 @@ def pad_fun(data, block_size=16):
 
 def read_file(f):
     with open(f, "rb") as fil:
-        header = f.read(54)
-        data = f.read()
+        header = fil.read(54)
+        data = fil.read()
     return header, data
+
+def write_file(f, header, data):
+    with open(f, "wb") as fil:
+        fil.write(header)
+        fil.write(data)
 
 def generate_key():
     return get_random_bytes(16)
@@ -18,20 +23,24 @@ def generate_key():
 def generate_iv():
     return get_random_bytes(16)
 
-def ecb_encrypt(file, key):
+def ecb_encrypt(f, key):
     cipher = AES.new(key,AES.MODE_ECB)
     cipher_text = b""
-    header, data = read_file(file)
+    header, data = read_file(f)
+    data = pad_fun(data)
+    for i in range(0, len(data), 16):
+        one_block = data[i:i+16]
+        cipher_text += cipher.encrypt(one_block)
+    return header, cipher_text
     
-
-
 def cbc_encrypt(file, key, iv):
     ...
 
 def main():
     key = generate_key()
     iv = generate_iv()
-    
+    header, ecb_cipher = ecb_encrypt("mustang.bmp", key)
+    write_file("ecb_mustang_encrypted.bmp", header, ecb_cipher)
 
 
 if __name__ == '__main__':
