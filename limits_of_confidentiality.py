@@ -27,13 +27,13 @@ def flip_bit(ciphertext):
     for x in byte_pos:
         block = x // 16
         index = x % 16
-        prev = (block - 1) * 16
+        prev = (block - 1) * 16 + index
         if index == 1:
-            modify_cipher[prev + index] ^= (ord("X") ^ ord (";"))
+            modify_cipher[prev] ^= (ord("X") ^ ord (";"))
         elif index == 7:
-            modify_cipher[prev + index] ^= (ord("Y") ^ ord ("="))
+            modify_cipher[prev] ^= (ord("Y") ^ ord ("="))
         elif index == 12:
-            modify_cipher[prev + index] ^= (ord("X") ^ ord (";"))
+            modify_cipher[prev] ^= (ord("X") ^ ord (";"))
     return bytes(modify_cipher)
 
 def main():
