@@ -87,7 +87,6 @@ def main():
     write_file("cbc_mustang_encrypted.bmp", header, cbc_cipher)
     if cbc_decrypt(cbc_cipher, key, iv) == data:
         print("Successfully decrypted cbc_mustang")
-
-
+        
 if __name__ == '__main__':
     main()
