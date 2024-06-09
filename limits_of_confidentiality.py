@@ -47,7 +47,7 @@ def main():
         print("verify function returned false")
 
     flipped = flip_bit(ciphertext)
-    # print(flipped)
+    
     if verify(flipped, key, iv) is True:
         print("verify with flip bit function returned true")
     else:
