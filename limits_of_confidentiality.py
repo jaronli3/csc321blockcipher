@@ -15,7 +15,7 @@ def submit(user_input, key, iv):
 
 def verify(ciphertext, key, iv):
     plain_text = MOP.cbc_decrypt(ciphertext, key, iv)
-    # print(f"Decrypted: {plain_text}")
+    print(f"Decrypted: {plain_text}")
     if b";admin=true;" in plain_text:
         return True
     return False
