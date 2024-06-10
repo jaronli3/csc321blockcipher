@@ -1,0 +1,13 @@
+version: 3.2.0
+built on: Thu Nov 23 13:20:19 2023 UTC
+options: bn(64,64)
+compiler: clang -fPIC -arch x86_64 -O3 -Wall -DL_ENDIAN -DOPENSSL_PIC -D_REENTRANT -DOPENSSL_BUILDING_OPENSSL -DNDEBUG
+CPUINFO: OPENSSL_ia32cap=0x298220f4f8b8f15:0x0
+                   sign    verify    encrypt   decrypt   sign/s verify/s  encr./s  decr./s
+rsa   512 bits 0.000060s 0.000006s 0.000007s 0.000081s  16740.7 178852.4 150613.4  12311.0
+rsa  1024 bits 0.000224s 0.000014s 0.000016s 0.000249s   4460.5  69184.2  63598.2   4019.0
+rsa  2048 bits 0.001609s 0.000049s 0.000051s 0.001716s    621.5  20279.9  19525.2    582.7
+rsa  3072 bits 0.005210s 0.000107s 0.000109s 0.005199s    192.0   9339.9   9140.5    192.3
+rsa  4096 bits 0.011881s 0.000186s 0.000189s 0.011935s     84.2   5375.0   5286.3     83.8
+rsa  7680 bits 0.103608s 0.000638s 0.000645s 0.103958s      9.7   1567.4   1550.7      9.6
+rsa 15360 bits 0.587647s 0.002543s 0.002556s 0.590000s      1.7    393.2    391.3      1.7

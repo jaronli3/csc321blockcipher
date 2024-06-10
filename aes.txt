@@ -1,0 +1,10 @@
+version: 3.2.0
+built on: Thu Nov 23 13:20:19 2023 UTC
+options: bn(64,64)
+compiler: clang -fPIC -arch x86_64 -O3 -Wall -DL_ENDIAN -DOPENSSL_PIC -D_REENTRANT -DOPENSSL_BUILDING_OPENSSL -DNDEBUG
+CPUINFO: OPENSSL_ia32cap=0x298220f4f8b8f15:0x0
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+aes-128-cbc     520196.12k   599876.52k   619567.79k   623290.37k   626898.96k   624203.09k
+aes-192-cbc     446592.87k   503197.67k   518466.35k   519970.82k   520798.21k   522337.26k
+aes-256-cbc     390101.17k   433196.31k   443161.26k   445795.67k   447811.98k   446496.77k
