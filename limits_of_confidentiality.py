@@ -5,18 +5,18 @@ import random
 
 def submit(user_input, key, iv):
     prefix = b"userid=456; userdata="
-    print(len(prefix))
+    # print(len(prefix))
     suffix = b";session-id=31337"
     new_user_input = urllib.parse.quote(user_input)
     new_user_input = new_user_input.encode()
     text = prefix + new_user_input + suffix
-    print(f"Encrypting: {text}")
+    # print(f"Encrypting: {text}")
     cipher_text = MOP.cbc_encrypt(text, key, iv)
     return cipher_text
 
 def verify(ciphertext, key, iv):
     plain_text = MOP.cbc_decrypt(ciphertext, key, iv)
-    print(f"Decrypted: {plain_text}")
+    # print(f"Decrypted: {plain_text}")
     if b";admin=true;" in plain_text:
         return True
     return False
