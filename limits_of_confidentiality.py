@@ -5,7 +5,6 @@ import random
 
 def submit(user_input, key, iv):
     prefix = b"userid=456; userdata="
-    # print(len(prefix))
     suffix = b";session-id=31337"
     new_user_input = urllib.parse.quote(user_input)
     new_user_input = new_user_input.encode()
